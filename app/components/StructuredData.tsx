@@ -7,12 +7,13 @@ export default function StructuredData() {
     "url": "https://iconiqeng.com",
     "logo": "https://iconiqeng.com/logo.png",
     "sameAs": [
-      "https://github.com/IconiqEng",
-      "https://linkedin.com/company/iconiqeng"
+      "https://github.com/iconiqeng-hash",
+      "https://www.linkedin.com/in/iconic-engineers-54bbb6396",
+      "https://www.instagram.com/iconiq_eng"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "hello@iconiqeng.com",
+      "email": "iconiqeng@gmail.com",
       "contactType": "Customer Service"
     },
     "address": {

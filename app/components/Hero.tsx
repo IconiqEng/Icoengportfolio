@@ -159,8 +159,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-3"
-            style={{ marginTop: '3rem' }}
+            className="flex flex-wrap items-center justify-center"
+            style={{ 
+              gap: '0.75rem',
+              marginTop: '3rem',
+            }}
           >
             {techStack.map((tech, index) => (
               <motion.span
@@ -174,6 +177,10 @@ export default function Hero() {
                 style={{
                   backdropFilter: 'blur(8px)',
                   background: 'rgba(255, 255, 255, 0.03)',
+                  paddingTop: '0.5rem',
+                  paddingBottom: 'rem',
+                  paddingLeft: '0.5rem',
+                  paddingRight: '0.5rem'
                 }}
               >
                 {tech}

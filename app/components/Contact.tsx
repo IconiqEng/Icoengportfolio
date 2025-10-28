@@ -133,8 +133,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Email</h4>
-                  <a href="mailto:hello@iconiqeng.com" className="text-teal-accent hover:text-teal-hover transition-colors">
-                    hello@iconiqeng.com
+                  <a href="mailto:iconiqeng@gmail.com" className="text-teal-accent hover:text-teal-hover transition-colors">
+                    iconiqeng@gmail.com
                   </a>
                 </div>
               </div>
@@ -147,8 +147,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">GitHub</h4>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="text-teal-accent hover:text-teal-hover transition-colors">
-                    github.com/IconiqEng
+                  <a href="https://github.com/iconiqeng-hash" target="_blank" rel="noopener noreferrer" className="text-teal-accent hover:text-teal-hover transition-colors">
+                    github.com/iconiqeng-hash
                   </a>
                 </div>
               </div>
@@ -161,8 +161,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">LinkedIn</h4>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="text-teal-accent hover:text-teal-hover transition-colors">
-                    linkedin.com/company/iconiqeng
+                  <a href="https://www.linkedin.com/in/iconic-engineers-54bbb6396" target="_blank" rel="noopener noreferrer" className="text-teal-accent hover:text-teal-hover transition-colors">
+                    linkedin.com/in/iconic-engineers
                   </a>
                 </div>
               </div>
