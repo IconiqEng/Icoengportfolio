@@ -43,13 +43,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full border-t border-white/10 py-24 md:py-28 lg:py-32" style={{ background: 'rgba(0, 0, 0, 0.15)' }}>
+    <footer className="w-full border-t border-white/10" style={{ background: 'transparent', paddingTop: 'clamp(3rem, 5vw, 5rem)', paddingBottom: 'clamp(3rem, 5vw, 5rem)' }}>
       <div className="w-full" style={{ padding: '0 clamp(2rem, 5vw, 6rem)' }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-20 mb-16 md:mb-20">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">IconiqEng</h3>
-            <p className="text-gray-medium leading-relaxed mb-6">
+            <h3 className="text-2xl font-bold gradient-text mb-5 md:mb-6">IconiqEng</h3>
+            <p className="text-gray-medium leading-relaxed mb-7 md:mb-8">
               Building iconic digital experiences through full-stack development and innovative design.
             </p>
             <div className="flex gap-4">
@@ -71,8 +71,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-semibold mb-5 md:mb-6">Quick Links</h4>
+            <ul className="space-y-3 md:space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -89,8 +89,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
-            <div className="space-y-3 text-gray-medium">
+            <h4 className="text-lg font-semibold mb-5 md:mb-6">Get In Touch</h4>
+            <div className="space-y-4 md:space-y-5 text-gray-medium">
               <a href="mailto:hello@iconiqeng.com" className="block hover:text-teal-accent transition-colors">
                 hello@iconiqeng.com
               </a>
@@ -100,7 +100,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-white/10 text-center">
+        <div className="pt-10 md:pt-12 border-t border-white/10 text-center">
           <p className="text-gray-medium text-sm">
             © {currentYear} <span className="text-teal-accent font-semibold">IconiqEng</span>. All rights reserved. Crafted with 💚
           </p>

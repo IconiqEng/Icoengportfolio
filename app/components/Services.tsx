@@ -58,7 +58,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="w-full py-24 sm:py-32 md:py-40 lg:py-48 xl:py-56 relative overflow-hidden">
+    <section id="services" className="w-full relative overflow-hidden" style={{ paddingTop: 'clamp(3rem, 6vw, 6rem)', paddingBottom: 'clamp(3rem, 6vw, 6rem)' }}>
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -68,21 +68,21 @@ export default function Services() {
       </div>
 
       <div className="relative z-10 w-full" style={{ padding: '0 clamp(2rem, 5vw, 6rem)' }}>
-        <div ref={ref} className="text-center mb-24 md:mb-28 lg:mb-32 xl:mb-36 mt-16 md:mt-20 lg:mt-24">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-12 lg:mb-14">
+        <div ref={ref} className="text-center" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)', marginTop: 0 }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold" style={{ marginBottom: 'clamp(2.5rem, 3vw, 3.5rem)' }}>
             What We <span className="gradient-text">Do</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-medium leading-relaxed" style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
             Comprehensive digital solutions tailored to your business needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 'clamp(2rem, 3vw, 3.5rem)' }}>
           {services.map((service, index) => (
             <div
               key={index}
-              className="modern-card p-6 md:p-8 group cursor-pointer hover:scale-105 transition-transform"
-              style={{ marginBottom: '0' }}
+              className="modern-card group cursor-pointer hover:scale-105 transition-transform"
+              style={{ padding: 'clamp(1.5rem, 2.5vw, 2.5rem)', marginBottom: '0' }}
             >
               {/* Icon */}
               <div className="text-6xl mb-10 md:mb-12">
@@ -100,7 +100,7 @@ export default function Services() {
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-6 md:mt-8">
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
@@ -112,7 +112,7 @@ export default function Services() {
               </div>
 
               {/* Hover Arrow */}
-              <div className="mt-6 flex items-center text-teal-accent font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="mt-8 md:mt-10 flex items-center text-teal-accent font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                 <span>Learn More</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

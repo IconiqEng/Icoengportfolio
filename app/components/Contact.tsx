@@ -34,28 +34,28 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full py-24 sm:py-32 md:py-40 lg:py-48 xl:py-56 relative overflow-hidden">
+    <section id="contact" className="w-full relative overflow-hidden" style={{ paddingTop: 'clamp(3rem, 6vw, 6rem)', paddingBottom: 'clamp(3rem, 6vw, 6rem)' }}>
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-teal-accent/20 rounded-full blur-3xl" />
       </div>
 
       <div ref={ref} className="relative z-10 w-full" style={{ padding: '0 clamp(2rem, 5vw, 6rem)' }}>
-        <div className="text-center mb-24 md:mb-28 lg:mb-32 xl:mb-36 mt-16 md:mt-20 lg:mt-24">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-12 lg:mb-14">
+        <div className="text-center" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)', marginTop: 0 }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold" style={{ marginBottom: 'clamp(2.5rem, 3vw, 3.5rem)' }}>
             Let's Build Something <span className="gradient-text">Iconic</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-medium max-w-2xl mx-auto leading-relaxed" style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
             Ready to transform your ideas into reality? Get in touch with us today.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-14 xl:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 items-start" style={{ gap: 'clamp(2.5rem, 4vw, 4rem)' }}>
           {/* Contact Form */}
-          <div className="modern-card p-6 md:p-8 lg:p-10">
+          <div className="modern-card" style={{ padding: 'clamp(1.5rem, 2.5vw, 3rem)' }}>
             <form onSubmit={handleSubmit} className="space-y-7 md:space-y-8">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold mb-3 md:mb-4">
                   Your Name
                 </label>
                 <input
@@ -71,7 +71,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold mb-3 md:mb-4">
                   Email Address
                 </label>
                 <input
@@ -87,7 +87,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="project" className="block text-sm font-semibold mb-2">
+                <label htmlFor="project" className="block text-sm font-semibold mb-3 md:mb-4">
                   Project Details
                 </label>
                 <textarea
@@ -115,7 +115,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-7 md:space-y-9 lg:space-y-10">
             {/* Quick Response */}
-            <div className="modern-card p-7 md:p-8 lg:p-9">
+            <div className="modern-card" style={{ padding: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
               <div className="text-4xl mb-5 md:mb-6">⚡</div>
               <h3 className="text-xl font-bold mb-3 md:mb-4">Quick Response</h3>
               <p className="text-gray-medium">
@@ -124,7 +124,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Methods */}
-            <div className="modern-card p-7 md:p-8 lg:p-9 space-y-7 md:space-y-8">
+            <div className="modern-card space-y-7 md:space-y-8" style={{ padding: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-teal-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-teal-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,11 +169,11 @@ export default function Contact() {
             </div>
 
             {/* Quote */}
-            <div className="modern-card p-6 md:p-7 border-l-4 border-teal-accent hover:translate-x-1 transition-transform">
-              <p className="text-gray-medium italic">
+            <div className="modern-card border-l-4 border-teal-accent hover:translate-x-1 transition-transform" style={{ padding: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}>
+              <p className="text-gray-medium italic leading-relaxed mb-4">
                 "Innovation distinguishes between a leader and a follower."
               </p>
-              <p className="text-sm text-teal-accent mt-2">— Steve Jobs</p>
+              <p className="text-sm text-teal-accent">— Steve Jobs</p>
             </div>
           </div>
         </div>

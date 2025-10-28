@@ -77,18 +77,18 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="w-full py-24 sm:py-32 md:py-40 lg:py-48 xl:py-56 relative overflow-hidden">
+    <section id="projects" className="w-full relative overflow-hidden" style={{ paddingTop: 'clamp(3rem, 6vw, 6rem)', paddingBottom: 'clamp(3rem, 6vw, 6rem)' }}>
       <div ref={ref} className="relative z-10 w-full" style={{ padding: '0 clamp(2rem, 5vw, 6rem)' }}>
-        <div className="text-center mb-24 md:mb-28 lg:mb-32 xl:mb-36 mt-16 md:mt-20 lg:mt-24">
-          <h2 className="text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-12 lg:mb-14">
+        <div className="text-center" style={{ marginBottom: 'clamp(2.5rem, 4vw, 4rem)', marginTop: 0 }}>
+          <h2 className="text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-bold" style={{ marginBottom: 'clamp(2.5rem, 3vw, 3.5rem)' }}>
             Our <span className="gradient-text">Portfolio</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-medium max-w-2xl mx-auto leading-relaxed" style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
             Showcasing our expertise across various industries and technologies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: 'clamp(2rem, 3vw, 3rem)' }}>
           {projects.map((project, index) => (
             <div
               key={index}
@@ -113,7 +113,7 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div className="p-6 md:p-8 lg:p-9">
+              <div style={{ padding: 'clamp(1.5rem, 2vw, 2rem)' }}>
                 <div className="text-xs text-teal-accent font-semibold mb-4 md:mb-5 uppercase tracking-wide">
                   {project.category}
                 </div>
@@ -179,18 +179,18 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div className="p-8">
-                <div className="text-sm text-teal-accent font-semibold mb-2 uppercase tracking-wide">
+              <div style={{ padding: 'clamp(2rem, 3vw, 3rem)' }}>
+                <div className="text-sm text-teal-accent font-semibold mb-3 uppercase tracking-wide">
                   {selectedProject.category}
                 </div>
-                <h3 className="text-3xl font-bold mb-4">{selectedProject.title}</h3>
-                <p className="text-gray-medium mb-6 leading-relaxed">
+                <h3 className="text-3xl font-bold mb-6">{selectedProject.title}</h3>
+                <p className="text-gray-medium mb-8 leading-relaxed text-base">
                   {selectedProject.longDescription}
                 </p>
 
                 {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold mb-3">Key Features:</h4>
+                <div className="mb-8">
+                  <h4 className="text-lg font-semibold mb-4">Key Features:</h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {selectedProject.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-gray-medium">
@@ -202,8 +202,8 @@ export default function Projects() {
                 </div>
 
                 {/* Tech Stack */}
-                <div>
-                  <h4 className="text-lg font-semibold mb-3">Tech Stack:</h4>
+                <div className="pt-4 border-t border-white/10">
+                  <h4 className="text-lg font-semibold mb-4">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tags.map((tag) => (
                       <span
