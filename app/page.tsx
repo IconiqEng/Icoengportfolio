@@ -1,20 +1,20 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import About from './components/About';
-import Team from './components/Team';
+import Services from './components/Services';
 import Projects from './components/Projects';
+import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative w-full min-h-screen">
       <Navigation />
-      <main>
+      <main className="w-full">
         <Hero />
-        <About />
-        <Team />
+        <Services />
         <Projects />
+        <Process />
         <Contact />
       </main>
       <Footer />

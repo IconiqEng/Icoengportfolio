@@ -1,114 +1,93 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#team', label: 'Team' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { label: 'Home', href: '#home' },
+    { label: 'Services', href: '#services' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Process', href: '#process' },
+    { label: 'Contact', href: '#contact' },
   ];
 
-  const handleLinkClick = () => {
-    setIsMobileMenuOpen(false);
-  };
-
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-md py-4'
-          : 'bg-transparent py-6'
+        scrolled
+          ? 'bg-black/30 backdrop-blur-md border-b border-white/10'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#home"
-            className={`text-2xl font-semibold transition-colors duration-300 ${
-              isScrolled ? 'text-[var(--text-primary)]' : 'text-white'
-            }`}
-          >
-            iconiqeng
-          </a>
+      <div
+        className="w-full flex items-center justify-between"
+        style={{
+          padding: 'clamp(1rem, 2vw, 1.25rem) clamp(2rem, 5vw, 6rem)',
+        }}
+      >
+        {/* Logo */}
+        <a
+          href="#home"
+          className="text-teal-accent hover:opacity-80 transition-opacity"
+          style={{
+            fontSize: '1.5rem',
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
+          }}
+        >
+          IconiqEng
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`font-medium transition-colors duration-300 hover:text-[var(--accent)] font-[var(--font-inter)] ${
-                  isScrolled ? 'text-[var(--text-primary)]' : 'text-white'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 ${
-              isScrolled ? 'text-[var(--text-primary)]' : 'text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            ></span>
-          </button>
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-white hover:text-teal-accent transition-all duration-300 relative group"
+              style={{
+                fontSize: '0.9375rem',
+                fontWeight: 500,
+              }}
+            >
+              {link.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-accent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 py-6 border-t border-[var(--border-light)]">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={handleLinkClick}
-                  className={`font-medium transition-colors duration-300 hover:text-[var(--accent)] font-[var(--font-inter)] ${
-                    isScrolled ? 'text-[var(--text-primary)]' : 'text-white'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Get Started Button */}
+        <a
+          href="#contact"
+          className="btn-gradient hidden lg:block"
+        >
+          Get Started
+        </a>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 text-white"
+          aria-label="Toggle menu"
+        >
+          <span className="block w-6 h-0.5 bg-current"></span>
+          <span className="block w-6 h-0.5 bg-current"></span>
+          <span className="block w-6 h-0.5 bg-current"></span>
+        </button>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
-
