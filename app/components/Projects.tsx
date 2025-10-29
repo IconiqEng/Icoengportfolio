@@ -12,6 +12,7 @@ interface Project {
   tags: string[];
   gradient: string;
   features: string[];
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
@@ -23,6 +24,7 @@ const projects: Project[] = [
     tags: ['React', 'Node.js', 'Stripe', 'PostgreSQL'],
     gradient: 'from-blue-500 to-cyan-500',
     features: ['Real-time inventory', 'Secure payment gateway', 'Admin dashboard', 'Email notifications'],
+    liveUrl: 'https://ecommerce-store-silk-ten.vercel.app/',
   },
   {
     title: 'FinTech Dashboard',
@@ -41,33 +43,6 @@ const projects: Project[] = [
     tags: ['Next.js', 'WebRTC', 'AWS', 'MongoDB'],
     gradient: 'from-purple-500 to-pink-500',
     features: ['Video consultations', 'Secure records', 'Appointment system', 'HIPAA compliant'],
-  },
-  {
-    title: 'AI Content Generator',
-    description: 'AI-powered content creation tool with GPT integration.',
-    longDescription: 'Built an AI-powered platform that generates marketing copy, blog posts, and social media content using advanced language models with custom fine-tuning.',
-    category: 'AI/ML Application',
-    tags: ['Python', 'OpenAI', 'FastAPI', 'React'],
-    gradient: 'from-orange-500 to-red-500',
-    features: ['GPT-4 integration', 'Custom templates', 'Multi-language', 'SEO optimization'],
-  },
-  {
-    title: 'Real Estate Platform',
-    description: 'Property listing platform with virtual tours and AR features.',
-    longDescription: 'Developed a modern real estate platform featuring interactive 3D tours, augmented reality property viewing, and intelligent search with ML-powered recommendations.',
-    category: 'PropTech',
-    tags: ['React', 'Three.js', 'Node.js', 'AWS'],
-    gradient: 'from-teal-500 to-green-500',
-    features: ['3D virtual tours', 'AR viewing', 'Smart search', 'Interactive maps'],
-  },
-  {
-    title: 'Learning Management System',
-    description: 'Comprehensive LMS with video streaming and progress tracking.',
-    longDescription: 'Created an interactive learning platform with video streaming, quizzes, certificates, and detailed analytics for students and instructors.',
-    category: 'EdTech Solution',
-    tags: ['Next.js', 'AWS', 'MongoDB', 'Stripe'],
-    gradient: 'from-indigo-500 to-blue-500',
-    features: ['Video streaming', 'Progress tracking', 'Certificates', 'Analytics'],
   },
 ];
 
@@ -96,7 +71,7 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
             >
               {/* Gradient Header */}
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+              <div className={`h-48 bg-linear-to-br ${project.gradient} relative overflow-hidden`}>
                 <motion.div
                   className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"
                   whileHover={{ scale: 1.1 }}
@@ -153,21 +128,29 @@ export default function Projects() {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center"
+            style={{ padding: '1rem' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              className="bg-navy-primary border border-teal-accent/30 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-navy-primary border border-teal-accent/30 rounded-2xl w-full"
+              style={{
+                maxWidth: '56rem',
+                maxHeight: '90vh',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
               initial={{ scale: 0.9, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 50 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className={`h-64 bg-gradient-to-br ${selectedProject.gradient} relative`}>
+              <div className={`bg-linear-to-br ${selectedProject.gradient} relative`} style={{ height: '180px', flexShrink: 0 }}>
                 <button
                   className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all"
                   onClick={() => setSelectedProject(null)}
@@ -179,42 +162,69 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: 'clamp(2rem, 3vw, 3rem)' }}>
-                <div className="text-sm text-teal-accent font-semibold mb-3 uppercase tracking-wide">
+              <div style={{ 
+                padding: '1.5rem 2rem 2rem',
+                flex: '1 1 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: 0
+              }}>
+                <div className="text-xs text-teal-accent font-semibold mb-2 uppercase tracking-wide">
                   {selectedProject.category}
                 </div>
-                <h3 className="text-3xl font-bold mb-6">{selectedProject.title}</h3>
-                <p className="text-gray-medium mb-8 leading-relaxed text-base">
+                <h3 className="text-2xl font-bold mb-3">{selectedProject.title}</h3>
+                <p className="text-gray-medium mb-4 leading-relaxed text-sm">
                   {selectedProject.longDescription}
                 </p>
 
-                {/* Features */}
-                <div className="mb-8">
-                  <h4 className="text-lg font-semibold mb-4">Key Features:</h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {selectedProject.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-medium">
-                        <span className="text-teal-accent">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Features and Tech in 2 columns */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                  {/* Features */}
+                  <div>
+                    <h4 className="text-base font-semibold mb-2">Key Features:</h4>
+                    <ul className="space-y-1.5">
+                      {selectedProject.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-gray-medium text-sm">
+                          <span className="text-teal-accent text-xs">✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                {/* Tech Stack */}
-                <div className="pt-4 border-t border-white/10">
-                  <h4 className="text-lg font-semibold mb-4">Tech Stack:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-teal-accent/10 border border-teal-accent/30 text-teal-accent rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-base font-semibold mb-2">Tech Stack:</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedProject.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-teal-accent/10 border border-teal-accent/30 text-teal-accent rounded-full text-xs"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
+
+                {/* View Live Project Button */}
+                {selectedProject.liveUrl && (
+                  <div className="pt-3 mt-auto border-t border-white/10">
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-gradient inline-flex items-center gap-2 w-full sm:w-auto justify-center text-sm"
+                      style={{ padding: '0.625rem 1.5rem' }}
+                    >
+                      <span>View Live Project</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

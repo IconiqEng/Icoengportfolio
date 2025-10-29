@@ -192,21 +192,41 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2"
-        style={{ transform: 'translateX(-50%)' }}
+        className="absolute"
+        style={{ 
+          bottom: '40px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 20
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-teal-accent/50 rounded-full flex items-start justify-center p-2"
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            width: '24px',
+            height: '40px',
+            border: '2px solid rgba(0, 201, 167, 0.6)',
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            padding: '8px 0'
+          }}
         >
           <motion.div
             animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-teal-accent rounded-full"
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              width: '6px',
+              height: '6px',
+              background: '#00C9A7',
+              borderRadius: '50%',
+              boxShadow: '0 0 8px rgba(0, 201, 167, 0.8)'
+            }}
           />
         </motion.div>
       </motion.div>

@@ -64,7 +64,18 @@ export default function Process() {
         {/* Timeline */}
         <div className="relative">
           {/* Connecting Line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-accent via-teal-accent to-transparent -translate-x-1/2" />
+          <div 
+            className="hidden lg:block absolute"
+            style={{
+              left: '50%',
+              top: 0,
+              bottom: 0,
+              width: '2px',
+              background: 'linear-gradient(to bottom, #00C9A7 0%, #00C9A7 80%, transparent 100%)',
+              transform: 'translateX(-50%)',
+              zIndex: 0
+            }}
+          />
 
           {processSteps.map((step, index) => (
             <div key={index} className="relative last:mb-0" style={{ marginBottom: index === processSteps.length - 1 ? 0 : 'clamp(2.5rem, 4vw, 4rem)' }}>
@@ -80,8 +91,25 @@ export default function Process() {
                 </div>
 
                 {/* Timeline Dot */}
-                <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-6 h-6 bg-teal-accent rounded-full border-4 border-navy-primary shadow-lg shadow-teal-accent/50 hover:scale-150 transition-transform" />
+                <div 
+                  className="hidden lg:block absolute"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 10
+                  }}
+                >
+                  <div 
+                    className="rounded-full transition-transform hover:scale-150"
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      background: '#00C9A7',
+                      border: '4px solid #0B132B',
+                      boxShadow: '0 10px 15px -3px rgba(0, 201, 167, 0.5)'
+                    }}
+                  />
                 </div>
 
                 {/* Empty space for alternating layout */}

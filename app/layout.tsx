@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   authors: [{ name: "IconiqEng" }],
   creator: "IconiqEng",
   publisher: "IconiqEng",
+  icons: {
+    icon: [
+      { url: '/IconiqEng.png' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/IconiqEng.png',
+    apple: '/IconiqEng.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -39,12 +47,21 @@ export const metadata: Metadata = {
     title: "IconiqEng | Full-Stack Web Development Studio",
     description: "Professional full-stack web development studio specializing in React, Node.js, Python, and AWS. Building iconic digital experiences.",
     siteName: "IconiqEng",
+    images: [
+      {
+        url: '/IconiqEng.png',
+        width: 1200,
+        height: 630,
+        alt: 'IconiqEng Logo',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "IconiqEng | Full-Stack Web Development Studio",
     description: "Professional full-stack web development studio building iconic digital experiences.",
     creator: "@IconiqEng",
+    images: ['/IconiqEng.png'],
   },
   viewport: {
     width: "device-width",
@@ -61,6 +78,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/IconiqEng.png" type="image/png" />
+        <link rel="shortcut icon" href="/IconiqEng.png" />
+        <link rel="apple-touch-icon" href="/IconiqEng.png" />
         <StructuredData />
       </head>
       <body

@@ -14,11 +14,12 @@ export default function StructuredData() {
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "iconiqeng@gmail.com",
+      "telephone": ["+91-83686-64323", "+91-95825-75762"],
       "contactType": "Customer Service"
     },
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "US"
+      "addressCountry": "IN"
     },
     "serviceType": [
       "Full-Stack Web Development",

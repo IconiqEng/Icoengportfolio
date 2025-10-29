@@ -42,14 +42,17 @@ export default function Navigation() {
         {/* Logo */}
         <a
           href="#home"
-          className="text-teal-accent hover:opacity-80 transition-opacity"
-          style={{
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            letterSpacing: '-0.02em',
-          }}
+          className="hover:opacity-80 transition-opacity flex items-center"
         >
-          IconiqEng
+          <img 
+            src="/IconiqEng.png" 
+            alt="IconiqEng Logo" 
+            className="h-10 w-auto"
+            style={{
+              height: 'clamp(2rem, 3vw, 2.5rem)',
+              width: 'auto'
+            }}
+          />
         </a>
 
         {/* Desktop Navigation Links */}
