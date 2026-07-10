@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
@@ -18,6 +18,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://iconiqeng.com"),
   title: "IconiqEng | Full-Stack Web Development Studio",
   description: "Professional full-stack web development studio specializing in React, Node.js, Python, and AWS. We design and develop scalable, high-performance web applications from concept to deployment.",
   keywords: ["web development", "full-stack development", "React", "Node.js", "Python", "AWS", "web design", "UI/UX", "cloud deployment", "API integration"],
@@ -63,11 +64,12 @@ export const metadata: Metadata = {
     creator: "@IconiqEng",
     images: ['/IconiqEng.png'],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
