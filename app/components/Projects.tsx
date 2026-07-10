@@ -30,6 +30,17 @@ const projects: Project[] = [
     previewImage: '/Allfit.png',
   },
   {
+    title: 'Madonna Unisex Hair Salon',
+    description: 'A renovated digital experience for a unisex hair salon with a polished, modern online presence.',
+    longDescription: 'Renovated and delivered the Madonna Unisex Hair Salon website, refreshing its digital presence with a modern, responsive experience for showcasing salon services and connecting with customers.',
+    category: 'Salon & Beauty',
+    tags: ['Responsive Design', 'Service Showcase', 'Brand Refresh', 'Customer Experience'],
+    gradient: 'from-rose-500 to-orange-400',
+    features: ['Modern salon branding', 'Service showcase', 'Responsive layout', 'Clear contact experience', 'Updated visual design'],
+    liveUrl: 'https://madonna-renovated-demo.vercel.app/',
+    previewImage: '/Maddona renovated.png',
+  },
+  {
     title: 'UNI-Ed',
     description: 'A centralized school management system for streamlined academic and administrative operations.',
     longDescription: 'Built and deployed UNI-Ed as a school management platform that brings essential academic, student, and administrative workflows together in one accessible system.',
