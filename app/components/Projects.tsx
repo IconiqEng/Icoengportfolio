@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 interface Project {
@@ -13,9 +14,32 @@ interface Project {
   gradient: string;
   features: string[];
   liveUrl?: string;
+  previewImage?: string;
 }
 
 const projects: Project[] = [
+  {
+    title: 'All Fit Gym',
+    description: 'A modern fitness website built to showcase the gym and convert visitors into members.',
+    longDescription: 'Successfully delivered a polished website for All Fit Gym, featuring the gym’s facilities, expert trainers, membership plans, reviews, and free-trial booking experience.',
+    category: 'Fitness & Wellness',
+    tags: ['Responsive Design', 'Memberships', 'Trainer Profiles', 'Free Trial Booking'],
+    gradient: 'from-violet-500 to-fuchsia-500',
+    features: ['Membership plans', 'Trainer profiles', 'Facilities showcase', 'Free-trial booking', 'Customer reviews'],
+    liveUrl: 'https://allfit.pro',
+    previewImage: '/Allfit.png',
+  },
+  {
+    title: 'UNI-Ed',
+    description: 'A centralized school management system for streamlined academic and administrative operations.',
+    longDescription: 'Built and deployed UNI-Ed as a school management platform that brings essential academic, student, and administrative workflows together in one accessible system.',
+    category: 'School Management System',
+    tags: ['Student Management', 'Academic Administration', 'School Operations', 'Responsive Design'],
+    gradient: 'from-indigo-500 to-blue-500',
+    features: ['Student management', 'Academic administration', 'School operations dashboard', 'Centralized information access', 'Responsive interface'],
+    liveUrl: 'https://uni-ed-frontend.vercel.app/',
+    previewImage: '/UNIED.png',
+  },
   {
     title: 'E-Commerce Platform',
     description: 'Scalable marketplace with real-time inventory and secure payments.',
@@ -25,6 +49,7 @@ const projects: Project[] = [
     gradient: 'from-blue-500 to-cyan-500',
     features: ['Real-time inventory', 'Secure payment gateway', 'Admin dashboard', 'Email notifications'],
     liveUrl: 'https://ecommerce-store-silk-ten.vercel.app/',
+    previewImage: '/Ecommerce platform.png',
   },
   {
     title: 'FinTech Dashboard',
@@ -72,18 +97,29 @@ export default function Projects() {
             >
               {/* Gradient Header */}
               <div className={`h-48 bg-linear-to-br ${project.gradient} relative overflow-hidden`}>
+                {project.previewImage && (
+                  <Image
+                    src={project.previewImage}
+                    alt={`${project.title} website preview`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
                 <motion.div
-                  className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"
+                  className={`absolute inset-0 transition-all ${project.previewImage ? 'bg-black/25 group-hover:bg-black/10' : 'bg-black/40 group-hover:bg-black/20'}`}
                   whileHover={{ scale: 1.1 }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      className="text-6xl opacity-30"
-                      whileHover={{ scale: 1.2, opacity: 0.5 }}
-                    >
-                      💼
-                    </motion.div>
-                  </div>
+                  {!project.previewImage && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div
+                        className="text-6xl opacity-30"
+                        whileHover={{ scale: 1.2, opacity: 0.5 }}
+                      >
+                        💼
+                      </motion.div>
+                    </div>
+                  )}
                 </motion.div>
               </div>
 
@@ -151,6 +187,16 @@ export default function Projects() {
             >
               {/* Header */}
               <div className={`bg-linear-to-br ${selectedProject.gradient} relative`} style={{ height: '180px', flexShrink: 0 }}>
+                {selectedProject.previewImage && (
+                  <Image
+                    src={selectedProject.previewImage}
+                    alt={`${selectedProject.title} website preview`}
+                    fill
+                    sizes="(min-width: 896px) 896px, 100vw"
+                    className="object-cover"
+                  />
+                )}
+                <div className={`absolute inset-0 ${selectedProject.previewImage ? 'bg-black/25' : 'bg-black/10'}`} />
                 <button
                   className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all"
                   onClick={() => setSelectedProject(null)}
